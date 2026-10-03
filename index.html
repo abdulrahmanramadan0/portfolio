@@ -231,8 +231,8 @@ header.s .lm img{height:28px}
 .ayl .aw{opacity:0}[data-theme=dark] .ayl .aw{opacity:1}[data-theme=dark] .ayl .ac{opacity:0}
 .ayn{font-size:clamp(1.2rem,2.6vw,2rem)}
 /* major headings: one balanced editorial scale */
-.sd{font-size:clamp(3.4rem,11vw,9rem);line-height:1.2;overflow-wrap:anywhere}
-.sd.lg{font-size:clamp(2.7rem,8.5vw,7rem)}
+.sd{font-size:clamp(2.6rem,6.4vw,5.5rem);line-height:1.2;overflow-wrap:anywhere}
+.sd.lg{font-size:clamp(2.2rem,5vw,4.4rem)}
 .sn{font-size:clamp(2.2rem,5vw,4.6rem)}
 @media(max-width:340px){.lk b{font-size:.7rem}.lm img,header.s .lm img{height:28px}.logo{gap:6px}.ctl{gap:4px}.tb.ib{width:32px;height:32px}.tb.lang{height:32px;padding:0 6px}}
 /* Ayn Academy lockup: logo + name grouped as one compact unit */
@@ -299,13 +299,33 @@ header.s .lm img{height:28px}
 @media(hover:hover){.pr.in:hover .ph{scale:1.02}.pr:hover .ph::after,.pr:focus-visible .ph::after{transform:none}.pr:hover .pi i,.pr:focus-visible .pi i{opacity:1;transform:none}.pr:hover .pi h3{translate:6px 0}[dir=rtl] .pr:hover .pi h3{translate:-6px 0}}
 @media(hover:none),(max-width:560px){.pi i{display:none}}
 /* "View More" sits over the faded peek */
-.vb{position:absolute;inset-inline:0;bottom:max(12px,calc((var(--pk) - 50px)/2));z-index:3;display:flex;justify-content:center;pointer-events:none;transition:opacity .45s var(--e),transform .6s var(--e),visibility 0s linear .6s}
+.vb{position:absolute;inset-inline:0;bottom:max(12px,calc((var(--pk) - 50px)/2));z-index:3;display:flex;justify-content:center;pointer-events:none;transition:opacity .5s var(--e) .15s,transform .6s var(--e) .15s,visibility 0s}
 .vb[hidden]{display:none}
-.vw:not(.vcl) .vb{opacity:0;transform:translateY(10px);visibility:hidden}
+.vw:not(.vcl) .vb,.vw.vop .vb{opacity:0;transform:translateY(10px);visibility:hidden;transition:opacity .35s var(--e),transform .5s var(--e),visibility 0s linear .5s}
+/* side indicator: sits in the page gutter at the inline-end (left in RTL, right in LTR); a short sticky rail whose accent mark follows the scroll */
+.ix{position:absolute;top:0;bottom:0;inset-inline-end:calc(var(--p)*-1);width:var(--p);z-index:2;pointer-events:none;opacity:0;transition:opacity .9s var(--e) .5s}
+#cr[data-rev] .ix{opacity:1}
+.ix[hidden]{display:none}
+.ixs{--ixh:clamp(88px,15vh,132px);position:sticky;top:max(96px,calc(50vh - var(--ixh)/2 - 22px));display:flex;flex-direction:column;align-items:center;gap:9px;width:100%}
+.ixt{position:relative;display:block;width:1px;height:var(--ixh);background:var(--ln)}
+.ixk{position:absolute;left:-1px;top:0;width:3px;height:26px;background:var(--a);border-start-start-radius:3px;border-end-end-radius:3px;transform:translateY(calc(var(--ip,0)*(var(--ixh) - 26px)));transition:transform .55s var(--e)}
+.ix b{font-size:.68rem;font-weight:500;line-height:1;letter-spacing:.08em;color:var(--a);font-variant-numeric:tabular-nums}
+.ix small{font-size:.62rem;line-height:1;letter-spacing:.06em;color:var(--mu);font-variant-numeric:tabular-nums}
+@media(max-width:760px){.ix b,.ix small{display:none}}
+/* "Show Less": same button, shown under the list once every project is open */
+.vs{display:flex;justify-content:center;margin-top:clamp(36px,5vw,64px);opacity:0;transform:translateY(10px);transition:opacity .5s var(--e) .2s,transform .6s var(--e) .2s}
+.vs.on{opacity:1;transform:none}
+.vs[hidden]{display:none}
+.vs .vm:hover svg,.vs .vm:focus-visible svg{transform:translateY(-3px)}
+@media(prefers-reduced-motion:reduce){.vs .vm:hover svg{transform:none}}
 .vm{pointer-events:auto;display:inline-flex;align-items:center;gap:12px;font:inherit;font-weight:700;line-height:1.3;cursor:pointer;-webkit-appearance:none;appearance:none}
 .vm svg{flex:none;transition:transform .35s var(--e)}
 .vm:hover svg,.vm:focus-visible svg{transform:translateY(3px)}
 @media(prefers-reduced-motion:reduce){.pr .ph{clip-path:none;transform:none}.pr .ph img{scale:1}.pi{opacity:1;transform:none}.pr:hover .ph{scale:1}.vm:hover svg{transform:none}}
+/* ===== image protection: no dragging, no selecting, no long-press menu on portfolio images ===== */
+#pl img,#di img,#identity img{-webkit-user-drag:none;user-drag:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+#pl .ph,#di .ar,#identity .stg,#identity .fp{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+#di img{pointer-events:none}
 </style><noscript><style>.rv,.sl,.mk,.pr .ph,.pr .pi b,.sn,.sd,.se,.cn{opacity:1!important;transform:none!important;clip-path:none!important}</style></noscript></head><body>
 <header id="hd"><div class="w nav"><a class="logo" href="#home" aria-label="Abdulrahman Ramadan, Graphic Designer — Home"><span class="lm"><img class="ln" src="data:image/webp;base64,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" alt="" width="46" height="41"><img class="lw" src="data:image/webp;base64,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" alt="" aria-hidden="true" width="46" height="41"></span><span class="lk" lang="en"><b>Abdulrahman Ramadan</b><small>Graphic Designer</small></span></a>
 <nav id="nv" aria-label="Main"><ul><li><a href="#home" data-t="n1">الرئيسية</a></li><li><a href="#about" data-t="n3">عنّي</a></li><li><a href="#work" data-t="n2">أعمالي</a></li><li><a href="#services" data-t="n4">الخدمات</a></li><li><a href="#contact" data-t="n5">تواصل</a></li></ul></nav><div class="ctl"><button class="tb ib" id="th" type="button" aria-pressed="false" aria-label="Switch to dark mode"><svg class="i-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="i-m" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 019.5 4a8.5 8.5 0 1010.5 10.5z"/></svg></button><button class="tb lang" id="lg" type="button" aria-label="Switch language"><span dir="ltr"><b data-l="ar">AR</b><i aria-hidden="true">/</i><b data-l="en">EN</b></span></button><button class="bg tb ib" id="bg" type="button" aria-expanded="false" aria-controls="nv" aria-label="القائمة"><svg class="i-b" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></div></header>
@@ -333,7 +353,7 @@ header.s .lm img{height:28px}
 <section id="work" class="w" data-bg="cols" data-g="أ">
 <div class="sx"><span class="sn" aria-hidden="true">02</span><h2 class="sd" data-t="n2">أعمالي</h2><span class="se" lang="en" data-t="l2">SELECTED WORK</span><span class="cn" id="cnt"></span></div>
 <div class="fl" id="fl" role="tablist" aria-label="تصنيفات الأعمال"></div>
-<div class="cr" id="cr"><div class="vw" id="vw"><div class="vc" id="vc"><div id="pl" role="tabpanel"></div></div><div class="vb" id="vb" hidden><button type="button" class="btn p vm" id="vm" aria-expanded="false" aria-controls="pl"><span data-t="vm">عرض المزيد</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></div></div></div><p id="wn" class="rv" style="color:var(--mu)" data-t="wn">تُضاف مشاريع مختارة هنا قريبًا.</p><p id="we" class="rv" style="color:var(--mu)" data-t="we" hidden>لا توجد مشاريع في هذا التصنيف بعد.</p>
+<div class="cr" id="cr"><div class="vw" id="vw"><div class="ix" id="ix" aria-hidden="true" hidden><div class="ixs"><b id="ixn">01</b><span class="ixt"><span class="ixk"></span></span><small id="ixm">/ 01</small></div></div><div class="vc" id="vc"><div id="pl" role="tabpanel"></div></div><div class="vb" id="vb" hidden><button type="button" class="btn p vm" id="vm" aria-controls="pl"><span data-t="vm">عرض المزيد</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button></div></div><div class="vs" id="vs" hidden><button type="button" class="btn p vm" id="vl" aria-controls="pl"><span data-t="vl">عرض أقل</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 15l6-6 6 6"/></svg></button></div></div><p id="wn" class="rv" style="color:var(--mu)" data-t="wn">تُضاف مشاريع مختارة هنا قريبًا.</p><p id="we" class="rv" style="color:var(--mu)" data-t="we" hidden>لا توجد مشاريع في هذا التصنيف بعد.</p>
 </section>
 
 <section class="w" id="services" data-bg="rules" data-g="خ">
@@ -382,29 +402,52 @@ f.innerHTML=[['all',ALL],...Object.entries(cats)].map(([id,l])=>`<button type="b
 function ctr(sm){const f=$('#fl'),t=f.querySelector('[aria-selected=true]');if(!t||f.scrollWidth<=f.clientWidth+1)return;const a=t.getBoundingClientRect(),b=f.getBoundingClientRect();f.scrollBy({left:(a.left+a.width/2)-(b.left+b.width/2),behavior:sm?'smooth':'auto'})}
 function vis(){const act=$('#fl').dataset.a||'all';let n=0;document.querySelectorAll('#pl .pr').forEach(e=>{const on=act=='all'||P[e.dataset.k].c==act;e.hidden=!on;if(on){e.classList.toggle('f1',!n);e.style.setProperty('--o',[0,1,-.4,1.3,.3,-1][n%6]);n++}});
 $('#wn').hidden=P.length>0;$('#we').hidden=!(P.length>0&&n==0);$('#cnt').textContent=P.length?String(n).padStart(2,'0')+' / '+String(P.length).padStart(2,'0'):''}
-/* ===== Works: vertical reveal. First project + a faded peek of the next; "View More" opens the rest ===== */
-T.en.vm="View More";
-const crMo=()=>matchMedia('(prefers-reduced-motion:reduce)').matches,crVis=()=>[...document.querySelectorAll('#pl .pr:not([hidden])')];
-let crOpen=false,crT=0,crQ=0;
-/* collapsed height = first project (with caption) + a small peek of the second */
-function crSize(){const w=$('#vw'),v=crVis();if(!w.classList.contains('vcl')||!v[1])return;
-const a=v[1],pk=Math.round(Math.min(a.querySelector('.ph').offsetHeight*.62,Math.max(120,Math.min(210,innerWidth*.17))));
+/* ===== Works: vertical reveal in steps of 5. Shown projects + a faded peek of the next; "View More" opens the next 5 ===== */
+T.en.vm="View More";T.en.vl="Show Less";
+const CR_PAGE=5,crMo=()=>matchMedia('(prefers-reduced-motion:reduce)').matches,crVis=()=>[...document.querySelectorAll('#pl .pr:not([hidden])')];
+let crN=CR_PAGE,crT=0,crQ=0;
+const crPk=a=>Math.round(Math.min(a.querySelector('.ph').offsetHeight*.62,Math.max(120,Math.min(210,innerWidth*.17))));
+/* clip height = the projects shown so far + a small peek of the next one */
+function crSize(){const w=$('#vw'),a=crVis()[crN];if(!w.classList.contains('vcl')||!a)return;const pk=crPk(a);
 w.style.setProperty('--pk',pk+'px');w.style.setProperty('--mfv',(pk+36)+'px');$('#vc').style.height=(a.offsetTop+pk)+'px'}
-/* apply the current state (collapsed / open) without animation */
-function crLay(){const w=$('#vw'),v=crVis(),can=v.length>1&&!crOpen;clearTimeout(crT);
-w.classList.remove('vop');w.classList.toggle('vcl',can);v.forEach((e,k)=>{e.inert=can&&k>0});
-$('#vb').hidden=!can;$('#vm').setAttribute('aria-expanded',String(!can));
-if(can)crSize();else $('#vc').style.height=''}
-/* open: the clip box grows to the full list while the fade melts away; each project then reveals as it appears */
-function crExp(kb){const w=$('#vw'),c=$('#vc');if(!w.classList.contains('vcl'))return;crOpen=true;
-const v=crVis(),nx=v[1];v.forEach(e=>e.inert=false);$('#vm').setAttribute('aria-expanded','true');
-const fin=()=>{if(!w.classList.contains('vop'))return;clearTimeout(crT);c.removeEventListener('transitionend',on);w.classList.remove('vop');c.style.height='';$('#vb').hidden=true;if(kb&&nx)nx.focus()};
+/* apply the current state without animation */
+function crLay(){const w=$('#vw'),v=crVis(),can=v.length>crN;clearTimeout(crT);
+w.classList.remove('vop');w.classList.toggle('vcl',can);v.forEach((e,k)=>{e.inert=can&&k>=crN});
+$('#vb').hidden=!can;crVs(!can&&v.length>CR_PAGE);if(can)crSize();else $('#vc').style.height=''}
+/* Show Less button: shown only when every project is open */
+function crVs(show){const vs=$('#vs');if(!show){vs.classList.remove('on');vs.hidden=true;return}vs.hidden=false;void vs.offsetWidth;requestAnimationFrame(()=>vs.classList.add('on'))}
+/* Show Less: the list fades out, folds back to the first 5 and fades in again with "View More" landing where "Show Less" was */
+function crLess(kb){const w=$('#vw'),c=$('#vc'),pl=$('#pl');if(w.classList.contains('vcl')||w.classList.contains('vop')||crLess.b)return;crLess.b=1;
+const y0=$('#vl').getBoundingClientRect().top;$('#vs').classList.remove('on');
+const go=()=>{c.style.transition='none';crN=CR_PAGE;crLay();
+const m=$('#vm').getBoundingClientRect().top,d=document.documentElement,sb=d.style.scrollBehavior;d.style.scrollBehavior='auto';scrollBy(0,m-y0);d.style.scrollBehavior=sb;
+const H=parseFloat(c.style.height)||0;if(!crMo()&&H)c.style.height=(H+Math.round(Math.min(innerHeight*.3,240)))+'px';
+void c.offsetHeight;c.style.transition='';crInd();
+requestAnimationFrame(()=>{pl.classList.remove('fd');c.style.height=H+'px';crLess.b=0;if(kb)$('#vm').focus({preventScroll:true})})};
+if(crMo()){go();return}
+pl.classList.add('fd');setTimeout(go,230)}
+function crSnap(c,h){c.style.transition='none';c.style.height=h;void c.offsetHeight;c.style.transition=''}
+/* View More: the clip box grows to take in the next 5 (or all that remain); the last step also melts the fade and removes the button */
+function crMore(kb){const w=$('#vw'),c=$('#vc');if(!w.classList.contains('vcl')||w.classList.contains('vop'))return;
+const v=crVis(),n0=crN,n1=n0+CR_PAGE,last=v.length<=n1,nx=v[n0];crN=n1;
+v.forEach((e,k)=>{e.inert=!last&&k>=n1});
+const a=v[n1],pk=last?0:crPk(a),end=last?$('#pl').offsetHeight:a.offsetTop+pk;
+const fin=()=>{if(!w.classList.contains('vop'))return;clearTimeout(crT);c.removeEventListener('transitionend',on);w.classList.remove('vop');
+if(last){$('#vb').hidden=true;crSnap(c,'');crVs(true)}else{w.style.setProperty('--pk',pk+'px');w.style.setProperty('--mfv',(pk+36)+'px');crSnap(c,end+'px')}
+crInd();if(kb&&nx)nx.focus()};
 const on=e=>{if(e.target===c&&e.propertyName=='height')fin()};
-if(crMo()){w.classList.remove('vcl');w.classList.add('vop');fin();return}
-const from=c.offsetHeight,to=$('#pl').offsetHeight;
-w.classList.remove('vcl');w.classList.add('vop');c.style.height=from+'px';void c.offsetHeight;
-c.addEventListener('transitionend',on);crT=setTimeout(fin,1500);c.style.height=to+'px'}
-$('#vm').onclick=e=>crExp(e.detail===0);
+w.classList.add('vop');if(last)w.classList.remove('vcl');
+if(crMo()){fin();return}
+const from=c.offsetHeight,to=Math.min(end,from+Math.round(innerHeight*1.1));/* animate only the part that can be seen; the rest is released off-screen at the end */
+c.style.height=from+'px';void c.offsetHeight;c.addEventListener('transitionend',on);crT=setTimeout(fin,1500);c.style.height=to+'px'}
+$('#vm').onclick=e=>crMore(e.detail===0);$('#vl').onclick=e=>crLess(e.detail===0);
+/* side indicator: progress through the projects shown so far + the number of the project at mid-screen */
+function crInd(){const ix=$('#ix'),v=crVis();ix.hidden=v.length<2;if(ix.hidden)return;
+const sh=Math.min(v.length,crN),mid=innerHeight*.5,a=v[0].getBoundingClientRect().top,z=v[sh-1].getBoundingClientRect().bottom;
+let k=0,d=1e9;for(let i=0;i<sh;i++){const r=v[i].getBoundingClientRect(),dd=Math.abs((r.top+r.bottom)/2-mid);if(dd<d){d=dd;k=i}}
+ix.style.setProperty('--ip',Math.max(0,Math.min(1,(mid-a)/Math.max(1,z-a))).toFixed(4));
+$('#ixn').textContent=String(+v[k].dataset.k+1).padStart(2,'0');$('#ixm').textContent='/ '+String(P.length).padStart(2,'0')}
+{let q=0;const f=()=>{q=0;crInd()},r=()=>{if(!q)q=requestAnimationFrame(f)};addEventListener('scroll',r,{passive:true});addEventListener('resize',r)}
 const crO=new IntersectionObserver(es=>{if(!es.some(e=>e.isIntersecting))return;crO.disconnect();$('#cr').dataset.rev=1;crWatch()},{threshold:0,rootMargin:'0px 0px -12% 0px'});
 function crIn(){const cr=$('#cr');if(!cr.dataset.rev)crO.observe(cr)}
 /* entrance: each project reveals (top to bottom) as it scrolls into view or is uncovered */
@@ -414,12 +457,12 @@ if(crMo()||!('IntersectionObserver' in window)){all.forEach(e=>e.classList.add('
 crIO=new IntersectionObserver(es=>{es.filter(x=>x.isIntersecting).sort((a,b)=>all.indexOf(a.target)-all.indexOf(b.target)).forEach((x,k)=>{x.target.style.setProperty('--d',k*110+'ms');x.target.classList.add('in');crIO.unobserve(x.target)})},{rootMargin:'0px 0px -8% 0px',threshold:.01});
 all.forEach(e=>{if(!e.classList.contains('in'))crIO.observe(e)})}
 function crRe(){if(!$('#cr').dataset.rev)return;document.querySelectorAll('#pl .pr').forEach(e=>e.classList.remove('in'));void $('#pl').offsetWidth;crWatch()}
-{const q=()=>{cancelAnimationFrame(crQ);crQ=requestAnimationFrame(crSize)};addEventListener('resize',q);if('ResizeObserver' in window)new ResizeObserver(q).observe($('#pl'))}
-/* a new category always starts collapsed */
-const vr=()=>{vis();crOpen=false;crLay();crRe()};
+{const q=()=>{cancelAnimationFrame(crQ);crQ=requestAnimationFrame(()=>{crSize();crInd()})};addEventListener('resize',q);if('ResizeObserver' in window)new ResizeObserver(q).observe($('#pl'))}
+/* a new category always starts with its first 5 */
+const vr=()=>{vis();crN=CR_PAGE;crLay();crRe();crInd()};
 function draw(){tabs();
-const rv=$('#cr').dataset.rev?' in':'';$('#pl').innerHTML=P.map((p,k)=>{const as=AS(p),a=as[0],n=as.length;return `<button class="pr${rv}" data-k="${k}" style="--q:${(a.w/a.h).toFixed(4)}"><div class="pv"><div class="ph" style="--ar:${a.w}/${a.h}"><img src="${a.src}" alt="${p.t[i()]}" width="${a.w}" height="${a.h}" loading="lazy" decoding="async"></div><div class="pi"><b>${String(k+1).padStart(2,'0')}</b><small>${(cats[p.c]||['',''])[i()]}${n>1?' · '+n+' '+(L=='ar'?'تصاميم':'designs'):''}</small><i>${L=='ar'?'افتح المشروع':'View project'}</i><h3>${p.t[i()]}</h3></div></div></button>`}).join('');crIn();
-vis();crLay()}
+const rv=$('#cr').dataset.rev?' in':'';$('#pl').innerHTML=P.map((p,k)=>{const as=AS(p),a=as[0],n=as.length;return `<button class="pr${rv}" data-k="${k}" style="--q:${(a.w/a.h).toFixed(4)}"><div class="pv"><div class="ph" style="--ar:${a.w}/${a.h}"><img src="${a.src}" alt="${p.t[i()]}" width="${a.w}" height="${a.h}" loading="lazy" decoding="async" draggable="false"></div><div class="pi"><b>${String(k+1).padStart(2,'0')}</b><small>${(cats[p.c]||['',''])[i()]}${n>1?' · '+n+' '+(L=='ar'?'تصاميم':'designs'):''}</small><i>${L=='ar'?'افتح المشروع':'View project'}</i><h3>${p.t[i()]}</h3></div></div></button>`}).join('');crIn();
+vis();crLay();crInd()}
 function setF(id){const f=$('#fl');if((f.dataset.a||'all')==id)return;f.dataset.a=id;
 f.querySelectorAll('[role=tab]').forEach(b=>{const on=b.dataset.c==id;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1});$('#pl').setAttribute('aria-labelledby','tab-'+id);ctr(1);
 const pl=$('#pl');clearTimeout(setF.t);
@@ -428,7 +471,7 @@ pl.classList.add('fd');setF.t=setTimeout(()=>{keep(vr);requestAnimationFrame(()=
 $('#fl').onclick=e=>{const b=e.target.closest('[data-c]');if(b)setF(b.dataset.c)};
 $('#fl').onkeydown=e=>{const k=e.key;if(!['ArrowRight','ArrowLeft','Home','End'].includes(k))return;const t=[...$('#fl').querySelectorAll('[role=tab]')];let n=t.indexOf(document.activeElement);if(n<0)return;e.preventDefault();const r=document.documentElement.dir=='rtl'?-1:1;n=k=='Home'?0:k=='End'?t.length-1:(n+(k=='ArrowRight'?1:-1)*r+t.length)%t.length;t[n].focus({preventScroll:true});setF(t[n].dataset.c)};
 $('#pl').onclick=e=>{const b=e.target.closest('.pr');if(!b)return;const p=P[b.dataset.k],as=AS(p),np=as.filter(x=>!wide(x)).length,ds=p.d?p.d[i()]:'';$('#dc').textContent=cats[p.c][i()];$('#dt').textContent=p.t[i()];$('#dd').textContent=ds;$('#dd').hidden=!ds;
-$('#di').innerHTML=as.map(x=>{const l=lab(x);return `<figure class="gf${wide(x)?' wide':np==1?' solo':''}${x.o?' op':''}"><div class="ar"><img src="${x.src}" alt="${p.t[i()]}${l?' — '+l:''}" width="${x.w}" height="${x.h}" loading="lazy" decoding="async"></div>${l?`<figcaption>${l}</figcaption>`:''}</figure>`}).join('');
+$('#di').innerHTML=as.map(x=>{const l=lab(x);return `<figure class="gf${wide(x)?' wide':np==1?' solo':''}${x.o?' op':''}"><div class="ar"><img src="${x.src}" alt="${p.t[i()]}${l?' — '+l:''}" width="${x.w}" height="${x.h}" loading="lazy" decoding="async" draggable="false"></div>${l?`<figcaption>${l}</figcaption>`:''}</figure>`}).join('');
 $('#dl').innerHTML=(p.det||[]).map(x=>`<div>${x[i()]}</div>`).join('');$('#dl').hidden=!(p.det&&p.det.length);$('#dg').showModal()};
 $('#dx').onclick=()=>$('#dg').close();$('#dg').onclick=e=>{if(e.target==$('#dg'))$('#dg').close()};
 function setL(l){L=l;const d=document.documentElement;d.lang=l;d.dir=l=='ar'?'rtl':'ltr';document.querySelectorAll('.se').forEach(e=>e.lang=l=='ar'?'en':'ar');document.querySelectorAll('[data-t]').forEach(e=>{const v=T[l][e.dataset.t];if(v)e.textContent=v});{const g=$('#lg'),t=l=='ar'?'تبديل اللغة إلى الإنجليزية':'Switch language to Arabic';g.setAttribute('aria-label',t);g.title=t;const m=$('#bg');m.setAttribute('aria-label',T[l].menu);m.title=T[l].menu}th(document.documentElement.dataset.theme,0);draw()}
@@ -454,4 +497,10 @@ $('#th').onclick=()=>keep(()=>{const h=document.documentElement;h.classList.add(
 const sg=$('#sg'),M=sg.src;let cur=0;
 document.querySelectorAll('.fp').forEach(b=>b.onclick=()=>{const k=+b.dataset.k,n=cur==k?0:k;cur=n;document.querySelectorAll('.fp').forEach(x=>x.setAttribute('aria-pressed',+x.dataset.k==n));sg.classList.add('f');setTimeout(()=>{sg.src=n?b.querySelector('img').src:M;sg.classList.remove('f')},300)});
 $('#yr').textContent=new Date().getFullYear();draw();th(document.documentElement.dataset.theme,0);
+/* ===== image protection (portfolio cards, project gallery, business-card showcase). Text selection and everything else stay normal ===== */
+{const IMG='#pl img,#di img,#identity img',ALL=IMG+',#pl .ph,#di .ar,#identity .stg,#identity .fp',hit=e=>e.target&&e.target.closest&&e.target.closest(ALL);
+['contextmenu','dragstart'].forEach(t=>document.addEventListener(t,e=>{if(hit(e))e.preventDefault()},true));
+/* copying a selection that spans a portfolio image gives plain text only, never the image */
+document.addEventListener('copy',e=>{const s=getSelection();if(!s||s.isCollapsed||!e.clipboardData)return;if([...document.querySelectorAll(IMG)].some(i=>s.containsNode(i,true))){e.preventDefault();e.clipboardData.setData('text/plain',s.toString())}});
+document.querySelectorAll('#identity img').forEach(i=>i.draggable=false)}
 </script></body></html>
